@@ -7,18 +7,30 @@ NBF
 ([+|-]\d+(\s+(:?AND|OR)\s+\d+)*)?
 
 In simpler terms, it means as follows:
+
 NBF
+
 +1 OR -2 AND +5 AND +3
 
 This file represents the boolean function on five inputs f(x1,x2,x3,x4,x5):=(((x1∨¬x2)∧x5)∧x3).
 A file containing a threshold function looks like (where the second and third line are regex):
+
 TF
+
 [+|-]\d+
+
 ([+|-]\d+(\s+[+|-]\d+)*)?
+
+
 For example,
+
 TF
+
 +15
+
 +10 -5 +30
+
+
 which represents the function f:ℝ3→{0,1} given by f(x1,x2,x3)=1 if and only 10x1−5x2+30x3≥15.
 
 While training based on the ground_file, the output would look like:
