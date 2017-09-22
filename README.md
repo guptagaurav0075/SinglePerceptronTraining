@@ -1,21 +1,16 @@
 # SinglePerceptronTraining
 
 Developed a program to train on Nested Boolean Functions and Threshold Functions.
-
 A file called ground_file could have either a Nested Boolean Funtion or Threshold Function.
-
 A file with Nested Boolean Function should follow the following the regular epression:
-
 NBF
 ([+|-]\d+(\s+(:?AND|OR)\s+\d+)*)?
 
 In simpler terms, it means as follows:
-
 NBF
 +1 OR -2 AND +5 AND +3
 
 This file represents the boolean function on five inputs f(x1,x2,x3,x4,x5):=(((x1∨¬x2)∧x5)∧x3).
-
 A file containing a threshold function looks like (where the second and third line are regex):
 TF
 [+|-]\d+
@@ -27,15 +22,11 @@ TF
 which represents the function f:ℝ3→{0,1} given by f(x1,x2,x3)=1 if and only 10x1−5x2+30x3≥15.
 
 While training based on the ground_file, the output would look like:
-
 x1,x2,...,xn:y:[update|no update]\n
-
 for example, if the weights did not change when training on the input-output example ([1,1,0,0],1) then program outputs:
 1,1,0,0:1:no update
-
 Once the function is trained, it will calculate the accuracy on test data. Here, ypred is what the trained perceptron would compute on x⃗ , yactual is when the ground function outputs on x⃗ , and error is ∣∣ypred−yactual∣∣. For example, if the test vector was [1,0,1,1] and the prediction of the perceptron on this input was 1 and this was also the ground function's value, then the line would look like:
 1,0,1,1:1:1:0
-
 After the last line output because of test data, program computes the average error on the test data, output it followed by a line with the value of epsilon, followed by a line which either says "TRAINING SUCCEEDED" or "TRAINING FAILED" depending on whether the average was less than epsilon. Below is an example of how this might look:
 Average Error:0.19
 Epsilon:0.2
